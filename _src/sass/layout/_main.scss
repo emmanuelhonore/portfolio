@@ -1,0 +1,27 @@
+/*
+ * Main layout (main section)
+ */
+
+.main-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.main-section {
+  padding: $header-height+$base-spacing $base-spacing $base-spacing;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+  .main-section--project {
+    padding: $base-spacing;
+  }

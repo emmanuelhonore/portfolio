@@ -1,0 +1,125 @@
+/*
+ * Typography
+ */
+ /*
+  * strip unit utility
+  */
+ @function strip-unit($number) {
+   @if type-of($number) == 'number' and not unitless($number) {
+     @return $number / ($number * 0 + 1);
+   }
+
+   @return $number;
+ }
+
+ /*
+  * create fluid type expression for html element
+  */
+ @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+ 	& {
+ 		@each $property in $properties {
+ 			#{$property}: $min-value;
+ 		}
+
+ 		@media screen and (min-width: $min-vw) {
+ 			@each $property in $properties {
+ 				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+ 			}
+ 		}
+
+ 		@media screen and (min-width: $max-vw) {
+ 			@each $property in $properties {
+ 				#{$property}: $max-value;
+ 			}
+ 		}
+ 	}
+ }
+
+/*
+ * calcultate line height for a specific size
+ */
+@function generate-line-height($size, $lh: $line-height, $line-height-unit: rem){
+  // if $size is not a number search in the $font-sizes map
+  @if (type-of($size) != number){
+    $size: map-get($font-sizes, $size);
+    // if does not exists, return base line-height and a warning;
+    @if (type-of($size) != number){
+      @warn "Error: invalid font size, the line-height has been set to it's orginal value of "+$lh;
+      @return $lh;
+    }
+  }
+
+  // get value in rem
+  $result: ceil($size / $lh) * $lh;
+
+  @if $line-height-unit == none {
+    // get value unitless
+    $result: $result / $size;
+  }
+  @else if $line-height-unit == rem {
+    $result: #{$result}rem;
+  }
+  @else {
+    $result: $result / $size;
+    @warn "Error: invalid $line-height-uni (must be none or rem), the line-height has been set to a unitless value of "+$result;
+  }
+
+  @return $result;
+}
+
+/*
+ * generate font scale
+ */
+@mixin font-scale($map) {
+  @each $tag, $size in $map {
+    #{$tag} {
+      font-size: $size * 1#{$font-unit};
+      line-height: generate-line-height($tag, $line-height);
+    }
+  }
+}
+
+
+html {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  color: $font-color;
+
+  @include fluid-type(font-size, map-get($breakpoints, xs), map-get($breakpoints, xxl), $min-font-size, $max-font-size);
+
+}
+
+@include font-scale($font-sizes);
+
+
+p,
+h6,h5,h4,h3,h2,h1,
+.text-small,
+.text-huge {
+  margin-top: 0;
+  margin-bottom: $font-spacing;
+  font-weight: normal;
+}
+
+p {}
+h6,h5,h4,h3,h2,h1 {}
+.small {}
+.huge {}
+.text-info {
+  font-family: $font-family-serif;
+}
+.text-emphasis {
+  text-transform: lowercase;
+  font-family: $font-family-serif-2;
+}
+.text-alternate {
+  color: currentColor;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: currentColor;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+}

@@ -1,0 +1,26 @@
+/*
+ * Base layout (body and html elements)
+ */
+html,
+body {
+  width: 100%;
+  margin: 0;
+}
+
+html {}
+
+body {}
+
+body {
+  &.theme-dark {
+    .main-header a {
+      color: $white;
+    }
+  }
+}
+
+
+.main-section.theme-dark {
+  color: $white;
+  background: darkgrey;
+}

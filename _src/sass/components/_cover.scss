@@ -1,0 +1,32 @@
+.cover {
+  position: relative;
+  top: -$base-spacing;
+  left: -$base-spacing;
+  width: 100vw;
+  height: 100vh;
+  min-height: 450px;
+
+  margin: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cover--bot {
+  justify-content: flex-end;
+}
+.cover--left {
+  align-items: flex-start;
+}
+.cover__content {
+  padding: 3*$base-spacing;
+  position: absolute;
+  z-index: 100;
+}
+.cover__image {
+  width: 100%;
+  object-fit: cover;
+  min-height: 100%;
+}

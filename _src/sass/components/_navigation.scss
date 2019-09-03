@@ -1,0 +1,21 @@
+.navigation {}
+
+.navigation__list {
+  list-style: none;
+  margin: 0;
+  margin-right: -($base-spacing / 2);
+}
+
+.navigation__item {
+  display: inline-block;
+}
+
+
+.navigation__link {
+  font-size: map-get($font-sizes, ".small") * 1rem;
+  color: $black;
+  padding: $base-spacing / 2;
+}
+.navigation__link--current {
+  text-decoration: line-through;
+}
