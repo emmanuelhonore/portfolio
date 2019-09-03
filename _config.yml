@@ -31,14 +31,27 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+sass:
+    sass_dir: _src/sass
+    style: compressed
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:title/
+
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
