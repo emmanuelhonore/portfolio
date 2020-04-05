@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Emmanuel Honoré</title>
+    <link>http://localhost:1313/project/</link>
+    <description>Recent content in Projects on Emmanuel Honoré</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2020 12:33:20 -0600</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Second Test</title>
+      <link>http://localhost:1313/project/second-test/</link>
+      <pubDate>Sat, 04 Apr 2020 12:33:20 -0600</pubDate>
+      
+      <guid>http://localhost:1313/project/second-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test Project</title>
+      <link>http://localhost:1313/project/test-project/</link>
+      <pubDate>Sat, 04 Apr 2020 11:24:15 -0600</pubDate>
+      
+      <guid>http://localhost:1313/project/test-project/</guid>
+      <description>Ceci est un titre Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique consectetur, molestias quibusdam ipsam dolor perferendis corporis iusto mollitia excepturi incidunt quis totam inventore repudiandae architecto modi alias, quod blanditiis dolore?</description>
+    </item>
+    
+  </channel>
+</rss>

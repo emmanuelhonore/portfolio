@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "header/head.html" . -}}
+    <body data-barba="wrapper">
+        {{- partial "header/header.html" . -}}
+        <main data-barba="container" data-barba-namespace="{{ if isset .Params "namespace" }}{{ .Params.namespace }}{{ else }}page{{ end }}">
+            {{- partial "breadcrumb.html" . -}}
+            {{- block "main" . }}{{- end }}            
+        </main>
+        {{- partial "footer/footer.html" . -}}
+        {{- partial "footer/scripts.html" . -}}
+
+        <div class="transition"></div>
+    </body>
+</html>
+

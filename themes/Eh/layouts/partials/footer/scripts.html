@@ -1,0 +1,7 @@
+{{ $main := resources.Get "js/main.js" }}
+{{ $defaultJS := slice $main | resources.Concat "assets/js/bundle.js" }}
+{{ $globalJS := $defaultJS | resources.Minify | resources.Fingerprint }}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script src="{{ $globalJS.Permalink }}"></script>

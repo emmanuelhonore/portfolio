@@ -1,0 +1,12 @@
+{{ define "main" }}
+    <p>content de la home</p>
+    {{ .Content }}
+    <p>fin content</p>
+
+    <p>ici la loop</p>
+    {{ range (where .Site.Pages "Section" "project") }}
+      {{ range .Pages }}
+        {{- partial "list-single.html" . -}}
+      {{ end }}
+    {{ end }}
+{{ end }}

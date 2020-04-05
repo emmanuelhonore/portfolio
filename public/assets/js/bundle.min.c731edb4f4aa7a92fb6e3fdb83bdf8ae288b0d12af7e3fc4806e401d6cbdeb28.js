@@ -1,0 +1,1 @@
+console.log('hello world');barba.init({transitions:[{leave({current,next,trigger}){console.log('leave');},enter({current,next,trigger}){console.log('enter');}}]});
